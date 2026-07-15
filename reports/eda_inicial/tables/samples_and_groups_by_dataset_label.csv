@@ -1,0 +1,8 @@
+dataset,ml_label,n_samples,n_groups
+ceramicnet_sue_ware,bowl,186,186
+ceramicnet_sue_ware,dish_body,129,129
+ceramicnet_sue_ware,dish_body_with_ring_base,154,154
+ceramicnet_sue_ware,dish_cap,390,390
+ceramicnet_sue_ware,plate,58,58
+vfm_iberian_vessels,iberian_vessel_complete,200,200
+vfm_iberian_vessels,iberian_vessel_fragment,197600,200

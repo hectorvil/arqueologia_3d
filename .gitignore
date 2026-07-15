@@ -1,0 +1,33 @@
+# Entornos virtuales
+.venv/
+.venv_3d/
+venv/
+env/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.ipynb_checkpoints/
+
+# Sistema
+.DS_Store
+
+# Datos pesados
+data/processed/pointclouds/
+data/model_ready/pointclouds/
+*.npy
+*.npz
+*.ply
+*.obj
+*.mtl
+*.zip
+*.rar
+*.7z
+
+# Backups grandes o locales
+data/model_ready/index_backup_before_vfm_fix.csv
+
+# Logs
+*.log

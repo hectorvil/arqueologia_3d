@@ -116,6 +116,28 @@ que corresponde a:
 
 ---
 
+## Enfoque actualizado del EDA
+
+El EDA principal se realiza sobre **objetos base/originales** y no sobre todas las muestras derivadas.
+
+Esto evita que las gráficas queden dominadas por los 197,600 fragmentos derivados de VoxelFragmentML.
+
+Se usa como EDA principal:
+
+```text
+917 objetos CeramicNet
+200 vasijas completas VoxelFragmentML
+1,117 objetos base/originales
+```
+
+Los fragmentos derivados se conservan, pero se documentan como **anexo**:
+
+```text
+reports/eda_objetos_originales/fragments_anexo/
+```
+
+---
+
 ## Estructura del proyecto
 
 ```text
@@ -137,11 +159,12 @@ arqueologia_3d/
 │       ├── split_summary.csv
 │       └── pointclouds/
 ├── reports/
-│   └── eda_inicial/
-│       ├── eda_summary.md
+│   └── eda_objetos_originales/
+│       ├── eda_original_objects_summary.md
 │       ├── plots/
 │       ├── tables/
-│       └── pointcloud_examples/
+│       ├── pointcloud_examples/
+│       └── fragments_anexo/
 ├── requirements.txt
 ├── .gitignore
 └── README.md
@@ -162,7 +185,7 @@ python scripts/01_unificar_datos.py
 Este script lee:
 
 - archivos `.txt` de CeramicNet;
-- archivos `.ply` de VoxelFragmentML;
+- archivos `.ply` de VoxelFragmentML.
 
 Guarda cada nube de puntos como `.npy` en formato estándar:
 
@@ -240,68 +263,82 @@ Además, recalcula `group_id` para que todas las muestras derivadas de una misma
 
 ---
 
-### 4. EDA inicial
+### 4. EDA de objetos originales/base
 
 ```bash
 python scripts/03_eda_inicial.py
 ```
 
-Este script genera:
+Este script genera el reporte principal sobre objetos base/originales:
 
 ```text
-reports/eda_inicial/
-├── eda_summary.md
+reports/eda_objetos_originales/
+├── eda_original_objects_summary.md
 ├── plots/
 ├── tables/
-└── pointcloud_examples/
+├── pointcloud_examples/
+└── fragments_anexo/
 ```
 
-El EDA incluye:
+El EDA principal incluye:
 
-- conteos por dataset;
-- conteos por etiqueta;
-- conteos por split;
-- distribución de fragmentos vs piezas completas;
+- conteos por dataset sobre objetos originales;
+- conteos por etiqueta sobre objetos originales;
+- conteos por split sobre objetos originales;
 - features geométricas básicas;
-- histogramas;
+- histogramas geométricos;
 - visualización de ejemplos 3D;
 - PCA inicial con variables geométricas.
 
+Los fragmentos derivados de VoxelFragmentML se guardan en un anexo para no dominar las gráficas principales.
+
 ---
 
-## Resultados visuales del EDA
+## Resultados visuales del EDA actualizado
 
-### Distribución por dataset
+### Distribución por dataset — objetos originales
 
-![Conteo por dataset](reports/eda_inicial/plots/counts_by_dataset.png)
+![Conteo por dataset](reports/eda_objetos_originales/plots/original_counts_by_dataset.png)
 
-### Distribución por etiqueta
+### Distribución por etiqueta — objetos originales
 
-![Conteo por etiqueta](reports/eda_inicial/plots/counts_by_label.png)
+![Conteo por etiqueta](reports/eda_objetos_originales/plots/original_counts_by_label.png)
 
-### Distribución por split
+### Distribución por split — objetos originales
 
-![Conteo por split](reports/eda_inicial/plots/counts_by_split.png)
+![Conteo por split](reports/eda_objetos_originales/plots/original_counts_by_split.png)
 
-### Split por etiqueta
+### Split por etiqueta — objetos originales
 
-![Split por etiqueta](reports/eda_inicial/plots/split_by_label_stacked.png)
+![Split por etiqueta](reports/eda_objetos_originales/plots/original_split_by_label_stacked.png)
 
-### PCA inicial con features geométricas
+### PCA inicial con features geométricas — objetos originales
 
-![PCA de features geométricas](reports/eda_inicial/plots/pca_features_geométricas.png)
+![PCA de features geométricas](reports/eda_objetos_originales/plots/pca_original_objects_features.png)
 
-### Histogramas geométricos
+### Histogramas geométricos — objetos originales
 
-![Histograma width x](reports/eda_inicial/plots/hist_ready_width_x.png)
+![Histograma width x](reports/eda_objetos_originales/plots/hist_original_ready_width_x.png)
 
-![Histograma width y](reports/eda_inicial/plots/hist_ready_width_y.png)
+![Histograma width y](reports/eda_objetos_originales/plots/hist_original_ready_width_y.png)
 
-![Histograma width z](reports/eda_inicial/plots/hist_ready_width_z.png)
+![Histograma width z](reports/eda_objetos_originales/plots/hist_original_ready_width_z.png)
 
-### Ejemplo de nube de puntos
+### Ejemplos de nubes de puntos
 
-![Ejemplo bowl CeramicNet](reports/eda_inicial/pointcloud_examples/example_bowl_ceramicnet_000113.png)
+Los ejemplos visuales se encuentran en:
+
+```text
+reports/eda_objetos_originales/pointcloud_examples/
+```
+
+### Anexo de fragmentos derivados
+
+El análisis secundario de fragmentos derivados se encuentra en:
+
+```text
+reports/eda_objetos_originales/fragments_anexo/
+```
 
 ---
 
@@ -313,7 +350,7 @@ El EDA incluye:
 data/model_ready/index.csv
 ```
 
-Este archivo se usa para EDA general.
+Este archivo contiene todas las muestras disponibles, incluyendo objetos base y fragmentos derivados.
 
 ### Dataset balanceado o capado para primer modelo
 
@@ -335,6 +372,12 @@ Cada archivo `.npy` contiene una nube de puntos:
 1024 puntos x 3 coordenadas
 ```
 
+### Reporte EDA principal
+
+```text
+reports/eda_objetos_originales/eda_original_objects_summary.md
+```
+
 ---
 
 ## Consideraciones metodológicas
@@ -351,7 +394,8 @@ Esto no significa 139,000 objetos arqueológicos independientes. Significa que m
 
 Por ello:
 
-- para EDA se conserva el dataset completo;
+- para describir la colección arqueológica se usa el EDA de objetos base/originales;
+- para documentar el volumen de datos disponible se conserva un anexo de fragmentos;
 - para modelado inicial se recomienda usar el índice balanceado;
 - los splits deben respetar `group_id` para evitar fuga de información.
 
@@ -372,7 +416,8 @@ Actualmente se logró:
 - crear splits train/val/test por grupo;
 - crear índice completo;
 - crear índice balanceado/capado para primer modelo;
-- preparar EDA inicial con tablas, gráficas y ejemplos 3D.
+- preparar EDA centrado en objetos originales/base;
+- separar fragmentos derivados en un anexo.
 
 ---
 
@@ -387,8 +432,9 @@ Actualmente se logró:
 
 ### EDA
 
-- Revisar las gráficas generadas en `reports/eda_inicial/plots/`.
-- Revisar ejemplos visuales de nubes de puntos.
+- Revisar las gráficas generadas en `reports/eda_objetos_originales/plots/`.
+- Revisar ejemplos visuales de nubes de puntos en `reports/eda_objetos_originales/pointcloud_examples/`.
+- Revisar el anexo de fragmentos en `reports/eda_objetos_originales/fragments_anexo/`.
 - Analizar si las clases de CeramicNet y VoxelFragmentML son comparables.
 - Revisar distribución de variables geométricas por dataset y etiqueta.
 
@@ -448,3 +494,31 @@ Los datos pesados no se incluyen en este repositorio. Las rutas locales usadas d
 
 Estas rutas deben ajustarse si el proyecto se ejecuta en otra computadora.
 
+---
+
+## Recomendación para GitHub
+
+Subir al repositorio:
+
+```text
+README.md
+requirements.txt
+.gitignore
+scripts/
+reports/eda_objetos_originales/plots/
+reports/eda_objetos_originales/pointcloud_examples/
+reports/eda_objetos_originales/tables/
+reports/eda_objetos_originales/fragments_anexo/
+```
+
+No subir:
+
+```text
+*.npy
+*.ply
+*.obj
+*.mtl
+*.zip
+data/model_ready/pointclouds/
+data/processed/pointclouds/
+```

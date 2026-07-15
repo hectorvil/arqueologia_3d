@@ -339,11 +339,11 @@ Cada punto representa una coordenada tridimensional `(x, y, z)` de la superficie
 | Clase | Ejemplo |
 |---|---|
 | Bowl — CeramicNet | ![Ejemplo bowl](reports/eda_objetos_originales/pointcloud_examples/example_bowl_ceramicnet_000113.png) |
-| Dish body — CeramicNet | ![Ejemplo dish body](reports/eda_objetos_originales/pointcloud_examples/example_dish_body_ceramicnet_000250.png) |
-| Dish body with ring base — CeramicNet | ![Ejemplo dish body with ring base](reports/eda_objetos_originales/pointcloud_examples/example_dish_body_with_ring_base_ceramicnet_000400.png) |
-| Dish cap — CeramicNet | ![Ejemplo dish cap](reports/eda_objetos_originales/pointcloud_examples/example_dish_cap_ceramicnet_000600.png) |
-| Plate — CeramicNet | ![Ejemplo plate](reports/eda_objetos_originales/pointcloud_examples/example_plate_ceramicnet_000850.png) |
-| Iberian vessel complete — VoxelFragmentML | ![Ejemplo vasija ibérica completa](reports/eda_objetos_originales/pointcloud_examples/example_iberian_vessel_complete_vfm_000000.png) |
+| Dish body — CeramicNet | ![Ejemplo dish body](reports/eda_objetos_originales/pointcloud_examples/example_dish_body_ceramicnet_000241.png) |
+| Dish body with ring base — CeramicNet | ![Ejemplo dish body with ring base](reports/eda_objetos_originales/pointcloud_examples/example_dish_body_with_ring_base_ceramicnet_000330.png) |
+| Dish cap — CeramicNet | ![Ejemplo dish cap](reports/eda_objetos_originales/pointcloud_examples/example_dish_cap_ceramicnet_000478.png) |
+| Plate — CeramicNet | ![Ejemplo plate](reports/eda_objetos_originales/pointcloud_examples/example_plate_ceramicnet_000859.png) |
+| Iberian vessel complete — VoxelFragmentML | ![Ejemplo vasija ibérica completa](reports/eda_objetos_originales/pointcloud_examples/example_iberian_vessel_complete_vfm_093955.png) |
 
 > Nota: estos ejemplos corresponden únicamente a objetos base/originales. Los fragmentos derivados de VoxelFragmentML se documentan por separado en el anexo de fragmentos.
 ### Anexo de fragmentos derivados

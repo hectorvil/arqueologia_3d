@@ -496,29 +496,3 @@ Estas rutas deben ajustarse si el proyecto se ejecuta en otra computadora.
 
 ---
 
-## Recomendación para GitHub
-
-Subir al repositorio:
-
-```text
-README.md
-requirements.txt
-.gitignore
-scripts/
-reports/eda_objetos_originales/plots/
-reports/eda_objetos_originales/pointcloud_examples/
-reports/eda_objetos_originales/tables/
-reports/eda_objetos_originales/fragments_anexo/
-```
-
-No subir:
-
-```text
-*.npy
-*.ply
-*.obj
-*.mtl
-*.zip
-data/model_ready/pointclouds/
-data/processed/pointclouds/
-```

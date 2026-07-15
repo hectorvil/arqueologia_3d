@@ -439,7 +439,6 @@ Actualmente se logró:
 
 ### Datos
 
-- Confirmar con el profesor si los fragmentos derivados cuentan como objetos o solo como muestras.
 - Si se requieren 2,000 objetos base, descargar la versión completa de VoxelFragmentML.
 - La versión completa contiene 1,052 vasijas base, pero pesa aproximadamente 450 GB.
 - Buscar repositorios adicionales para completar el número de objetos base si se requiere llegar a 2,000.

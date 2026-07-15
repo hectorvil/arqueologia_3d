@@ -448,30 +448,3 @@ Los datos pesados no se incluyen en este repositorio. Las rutas locales usadas d
 
 Estas rutas deben ajustarse si el proyecto se ejecuta en otra computadora.
 
----
-
-## Recomendación para GitHub
-
-Subir al repositorio:
-
-```text
-README.md
-requirements.txt
-.gitignore
-scripts/
-reports/eda_inicial/plots/
-reports/eda_inicial/pointcloud_examples/
-reports/eda_inicial/tables/
-```
-
-No subir:
-
-```text
-*.npy
-*.ply
-*.obj
-*.mtl
-*.zip
-data/model_ready/pointclouds/
-data/processed/pointclouds/
-```
